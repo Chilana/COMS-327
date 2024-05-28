@@ -1,0 +1,161 @@
+
+character.h,1066
+# define CHARACTER_H2,20
+#define DIJKSTRA_PATH_MAX 8,87
+#define NO_NPCS 9,127
+typedef enum __attribute__ ((__packed__)) movement_type 11,147
+  move_hiker,12,205
+  move_rival,13,219
+  move_pace,14,233
+  move_wander,15,246
+  move_sentry,16,261
+  move_explore,17,276
+  move_swim,18,292
+  move_pc,19,305
+  num_movement_types20,316
+} movement_type_t;21,337
+typedef enum __attribute__ ((__packed__)) character_type 23,357
+  char_pc,24,416
+  char_hiker,25,427
+  char_rival,26,441
+  char_swimmer,27,455
+  char_other,28,471
+  num_character_types29,485
+} character_type_t;30,507
+typedef struct npc 36,652
+  character_type_t ctype;37,673
+  movement_type_t mtype;38,699
+  int defeated;39,724
+  pair_t dir;40,740
+} npc_t;41,754
+typedef struct pc 43,764
+} pc_t;44,784
+class characterC{characterC57,1146
+  pair_t pos;59,1172
+  char symbol;60,1186
+  int next_turn;61,1201
+  int seq_num;62,1218
+class pcC 65,1237
+class npcC 69,1273
+  character_type_t ctype;71,1313
+  movement_type_t mtype;72,1339
+  int defeated;73,1364
+  pair_t dir;74,1380
+
+heap.h,245
+# define HEAP_H2,15
+typedef struct heap_node heap_node_t;11,114
+typedef struct heap 13,153
+  heap_node_t *min;min14,175
+  uint32_t size;15,195
+  int32_t (*compare)compare16,212
+  void (*datum_delete)datum_delete17,269
+} heap_t;18,301
+
+io.h,98
+# define IO_H2,13
+typedef struct character character_t;4,28
+typedef int16_t pair_t[pair_t5,66
+
+poke327.h,2799
+# define POKE327_H2,18
+typedef struct character character_t;9,99
+#define malloc(11,138
+# define rand_under(19,395
+# define rand_range(23,538
+# define UNUSED(25,612
+typedef enum dim 27,643
+  dim_x,28,662
+  dim_y,29,671
+  num_dims30,680
+} dim_t;31,691
+typedef int16_t pair_t[pair_t33,701
+#define MAP_X 35,736
+#define MAP_Y 36,766
+#define MIN_TREES 37,796
+#define MIN_BOULDERS 38,826
+#define TREE_PROB 39,856
+#define BOULDER_PROB 40,886
+#define WORLD_SIZE 41,916
+#define MIN_TRAINERS 43,948
+#define ADD_TRAINER_PROB 44,975
+#define MOUNTAIN_SYMBOL 46,1004
+#define BOULDER_SYMBOL 47,1038
+#define TREE_SYMBOL 48,1072
+#define FOREST_SYMBOL 49,1106
+#define GATE_SYMBOL 50,1140
+#define BAILEY_SYMBOL 51,1174
+#define PATH_SYMBOL 52,1208
+#define POKEMART_SYMBOL 53,1242
+#define POKEMON_CENTER_SYMBOL 54,1276
+#define TALL_GRASS_SYMBOL 55,1310
+#define SHORT_GRASS_SYMBOL 56,1344
+#define WATER_SYMBOL 57,1378
+#define ERROR_SYMBOL 58,1412
+#define PC_SYMBOL 60,1447
+#define HIKER_SYMBOL 61,1475
+#define RIVAL_SYMBOL 62,1503
+#define EXPLORER_SYMBOL 63,1531
+#define SENTRY_SYMBOL 64,1559
+#define PACER_SYMBOL 65,1587
+#define SWIMMER_SYMBOL 66,1615
+#define WANDERER_SYMBOL 67,1643
+#define mappair(69,1672
+#define mapxy(70,1729
+#define heightpair(71,1764
+#define heightxy(72,1827
+typedef enum __attribute__ ((__packed__)) terrain_type 74,1869
+  ter_boulder,75,1926
+  ter_tree,76,1941
+  ter_path,77,1953
+  ter_mart,78,1965
+  ter_center,79,1977
+  ter_grass,80,1991
+  ter_clearing,81,2004
+  ter_mountain,82,2020
+  ter_forest,83,2036
+  ter_water,84,2050
+  ter_gate,85,2063
+  ter_bailey,86,2075
+  num_terrain_types,87,2089
+  ter_debug88,2110
+} terrain_type_t;89,2122
+typedef struct map 91,2141
+  terrain_type_t map[map92,2162
+  uint8_t height[height93,2198
+  character_t *cmap[cmap94,2230
+  heap_t turn;95,2265
+  int32_t num_trainers;96,2280
+  int8_t n,97,2304
+  int8_t n, s,97,2304
+  int8_t n, s, e,97,2304
+  int8_t n, s, e, w;97,2304
+} map_t;98,2325
+typedef struct npc npc_t;100,2335
+typedef struct pc pc_t;101,2361
+typedef struct character 103,2451
+  npc_t *npc;npc104,2478
+  pc_t *pc;pc105,2492
+  pair_t pos;106,2504
+  char symbol;107,2518
+  int next_turn;108,2533
+  int seq_num;109,2550
+} character_t;110,2565
+typedef struct world 112,2581
+  map_t *world[world113,2604
+  pair_t cur_idx;114,2644
+  map_t *cur_map;cur_map115,2662
+  int hiker_dist[hiker_dist118,2787
+  int rival_dist[rival_dist119,2819
+  character_t pc;120,2851
+  int quit;121,2869
+  int add_trainer_prob;122,2881
+  int char_seq_num;123,2905
+} world_t;124,2925
+#define rand_dir(132,3143
+typedef struct path 138,3266
+  heap_node_t *hn;hn139,3288
+  uint8_t pos[pos140,3307
+  uint8_t from[from141,3325
+  int32_t cost;142,3344
+} path_t;143,3360

@@ -1,0 +1,6 @@
+This is the pokemon game but now you can move from map to map. 
+Walking into any gate will take to a new map in that direction, located in the 401 by 401 grid of maps.
+When the user inputs f, they can type the x and y coordinates and will be trasnported to that map.
+There are no issues, sometimes it will take a little bit to load a map but eventaully the map will load.
+Also when using the fly method you will have to press enter after typing the coordinates and then move for the 
+new map to load.

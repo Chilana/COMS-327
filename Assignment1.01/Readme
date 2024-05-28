@@ -1,0 +1,5 @@
+This program will print the map of the pokemon game.
+The map will produce two roads,  one that runs N to S, and the other going from E to W.
+There are 5 types of terrain: Short grass, Tall grass, water, mountains, and trees.
+The map will also produce a pokemon market and center which should be right next to the roads.
+There is a segmentation error, but it does not affect the code at all.
